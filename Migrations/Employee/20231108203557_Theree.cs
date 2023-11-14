@@ -5,7 +5,7 @@
 namespace asp_net.Migrations.Employee
 {
     /// <inheritdoc />
-    public partial class Threeo : Migration
+    public partial class Theree : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -5,7 +5,7 @@
 namespace asp_net.Migrations.Department
 {
     /// <inheritdoc />
-    public partial class Twoo : Migration
+    public partial class Two : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

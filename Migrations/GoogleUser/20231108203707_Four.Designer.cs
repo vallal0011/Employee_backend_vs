@@ -8,11 +8,11 @@ using asp_net.Context;
 
 #nullable disable
 
-namespace asp_net.Migrations.Department
+namespace asp_net.Migrations.GoogleUser
 {
-    [DbContext(typeof(DepartmentContext))]
-    [Migration("20231103102546_Twoo")]
-    partial class Twoo
+    [DbContext(typeof(GoogleUserContext))]
+    [Migration("20231108203707_Four")]
+    partial class Four
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,21 +24,26 @@ namespace asp_net.Migrations.Department
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("asp_net.Models.Department", b =>
+            modelBuilder.Entity("asp_net.Models.GoogleUser", b =>
                 {
-                    b.Property<int>("DepartmentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentId"));
-
-                    b.Property<string>("DepartmentName")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("DepartmentId");
+                    b.Property<string>("FamilyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Departments");
+                    b.Property<string>("GivenName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GoogleUsers");
                 });
 #pragma warning restore 612, 618
         }

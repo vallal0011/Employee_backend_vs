@@ -14,12 +14,14 @@ using System.IO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
+using Microsoft.AspNetCore.Authentication.Google;
+
 namespace WebApplication1.Controllers
 {
    
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme + "," + GoogleDefaults.AuthenticationScheme)]
     public class EmployeeController : ControllerBase
     {
         private readonly IConfiguration _configuration;

@@ -16,6 +16,12 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using asp_net.Context;
 
+using Microsoft.AspNetCore.Authorization;
+
+using Microsoft.Extensions.DependencyInjection;
+
+
+
 namespace asp_net
 
 {
@@ -29,8 +35,18 @@ namespace asp_net
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+
+      
+        
+      //  public Task<AuthorizationPolicy> GetFallbackPolicyAsync() => Task.FromResult<AuthorizationPolicy>(null);
         public void ConfigureServices(IServiceCollection services)
         {
+
+
+            services.AddSingleton<IAuthorizationPolicyProvider, CustomAuthorizationPolicyProvider>();
+
+
+
             //Enable CORS
             services.AddCors(c =>
             {
@@ -46,7 +62,12 @@ namespace asp_net
 
 
 
+
             services.AddControllers();
+            services.AddEndpointsApiExplorer();
+            
+
+
             // For Entity Framework
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
 
@@ -56,6 +77,13 @@ namespace asp_net
             });
 
             services.AddDbContext<EmployeeContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("ConnStr"));
+            });
+
+           
+           
+            services.AddDbContext<GoogleUserContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("ConnStr"));
             });
@@ -87,7 +115,14 @@ namespace asp_net
                      ValidIssuer = Configuration["JWT:ValidIssuer"],
                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
                  };
-             });
+             })
+            .AddGoogle(options =>
+            {
+                options.ClientId = Configuration["Authentication:Google:ClientId"];
+                options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            });
+
+
 
             // Add this to your ConfigureServices method in Startup.cs
             services.AddAuthorization(options =>
@@ -97,6 +132,7 @@ namespace asp_net
                     policy.RequireRole(UserRoles.Admin);
                 });
             });
+
 
 
         }
@@ -110,14 +146,18 @@ namespace asp_net
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
             }
-
+            app.UseAuthentication();
+            app.UseHttpsRedirection();
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+
+
                 endpoints.MapControllers();
             });
 

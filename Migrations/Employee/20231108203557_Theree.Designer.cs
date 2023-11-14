@@ -11,8 +11,8 @@ using asp_net.Context;
 namespace asp_net.Migrations.Employee
 {
     [DbContext(typeof(EmployeeContext))]
-    [Migration("20231103102607_Threeo")]
-    partial class Threeo
+    [Migration("20231108203557_Theree")]
+    partial class Theree
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

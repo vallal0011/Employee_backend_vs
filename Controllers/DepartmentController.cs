@@ -11,7 +11,10 @@ using asp_net.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 
+
+using Microsoft.AspNetCore.Authentication.Google;
 namespace asp_net.Controllers
+
 
 
 {
@@ -20,7 +23,7 @@ namespace asp_net.Controllers
    
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme + "," + GoogleDefaults.AuthenticationScheme)]
     public class DepartmentController : ControllerBase
     {
 
