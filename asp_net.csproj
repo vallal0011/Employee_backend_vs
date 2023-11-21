@@ -33,4 +33,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Google.Apis.Auth" Version="1.63.0" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Photos\" />
+    <None Remove="Authentication\" />
+    <None Remove="Context\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Photos\" />
+    <Folder Include="Authentication\" />
+    <Folder Include="Context\" />
+  </ItemGroup>
 </Project>

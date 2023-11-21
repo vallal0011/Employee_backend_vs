@@ -13564,11 +13564,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/poovallal/Desktop/webapp_asp/asp_net_vs_code/asp_net.csproj",
+      "projectUniqueName": "/Users/poovallal/Desktop/webapp_asp/asp_net/asp_net.csproj",
       "projectName": "asp_net",
-      "projectPath": "/Users/poovallal/Desktop/webapp_asp/asp_net_vs_code/asp_net.csproj",
+      "projectPath": "/Users/poovallal/Desktop/webapp_asp/asp_net/asp_net.csproj",
       "packagesPath": "/Users/poovallal/.nuget/packages/",
-      "outputPath": "/Users/poovallal/Desktop/webapp_asp/asp_net_vs_code/obj/",
+      "outputPath": "/Users/poovallal/Desktop/webapp_asp/asp_net/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/poovallal/.nuget/NuGet/NuGet.Config"
@@ -13578,6 +13578,7 @@
       ],
       "sources": {
         "/Users/poovallal/Desktop/webapp_asp/asp_net": {},
+        "/usr/local/share/dotnet/sdk/7.0.309/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -13688,7 +13689,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/poovallal/.vscode-dotnet-sdk/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.309/RuntimeIdentifierGraph.json"
       }
     }
   }

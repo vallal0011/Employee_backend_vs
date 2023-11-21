@@ -1,0 +1,1 @@
+ // "ConnStr": "Server=sql.bsite.net\\MSSQL2016;Database=poovallal_;User Id=poovallal_;Password=#Qaz1234;Encrypt=false;"
