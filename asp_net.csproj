@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>d46a3749-8c0e-428a-90f5-e6ef2829f7a1</UserSecretsId>
   </PropertyGroup>
+   <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
